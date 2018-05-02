@@ -11,6 +11,6 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   delete 'login', to: 'sessions#destroy'
   
-  get 'sign up', to:'users#new'
+  get 'signup', to:'users#new'
   resources :users, only:[:index, :show, :new, :create]
 end
