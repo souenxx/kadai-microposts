@@ -20,10 +20,15 @@ class MicropostsController < ApplicationController
     redirect_back(fallback_location: root_path)
   end
   
+  def likes
+    @micropost = Micropost.find(params[:id])
+    @likes = @user.likes.page(params[:page])
+  end
+  
   private
   
   def micropost_params
-    params.require(:micropost).permit(:content)
+    params.require(:micropost).permit(:content,:id)
   end
   
   def correct_user
